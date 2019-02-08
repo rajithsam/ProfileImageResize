@@ -1,0 +1,72 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>Profile Image Upload</title>
+    <link rel="stylesheet" href="styles/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/app.css"></link>
+
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-image-compress.js"></script>
+</head>
+
+<body ng-app="profileApp">
+
+    <div ng-controller="ProfileController" ng-cloak>
+        
+        <div class="card">
+
+            <h2>My Profile</h2>
+
+            <img ng-src="{{ profile_picture ? profile_picture.compressed.dataURL : 'img/default-profile.png' }}" 
+                alt="profile-picture" 
+                style="border-radius: 50%;height: 100px;width: 100px;margin-left: auto; margin-right: auto;display:block">
+
+            <label for="file-upload" class="btn-fileupload" style="cursor: pointer">
+                <i class="fa fa-camera" aria-hidden="true"></i>
+                Choose Image
+            </label>
+
+            <input id="file-upload" 
+                type="file" 
+                accept="image/*" 
+                ng-model="profile_picture" 
+                image="profile_picture" 
+                resize-max-height="200" 
+                resize-max-width="300" 
+                resize-quality="0.7" 
+                resize-type="image/jpg"
+                ng-image-compress
+                class="ng-hide"/>
+
+            <h1>RAJITH SAM</h1>
+
+            <p class="title">Web Application Developer</p>
+
+            <p>Radius Media Solutions</p>
+
+            <div style="margin: 24px 0;">
+              <a href="https://www.linkedin.com/in/rajith-sam" class="social-icons"><i class="fa fa-linkedin"></i></a> 
+              <a href="https://github.com/rajithsam" class="social-icons"><i class="fa fa-github"></i></a>  
+              <a href="https://twitter.com/RajithSamR" class="social-icons"><i class="fa fa-twitter"></i></a>  
+              <a href="https://stackoverflow.com/users/6370583/rajithsam" class="social-icons"><i class="fa fa-stack-overflow"></i></a>
+              <a href="https://www.instagram.com/rajithsam11" class="social-icons"><i class="fa fa-instagram"></i></a> 
+            </div>
+
+            <p><a class="contact" href="tel:+918903308200">Contact</a></p>
+
+        </div>
+
+    </div>
+
+    <script src="scripts/app.js"></script>
+   
+</body>
+
+</html>
